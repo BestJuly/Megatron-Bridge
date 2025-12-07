@@ -55,11 +55,13 @@ dist:
 
 logger:
   log_interval: 1
+  log_throughput: true
+  log_throughput_to_tensorboard: true
   # wandb_project: "your_own_wandb_project"
   # wandb_exp_name: "your_own_wandb_experiment_name"
 
 dataset:
-  sequence_length: 4096
+  maker_name: make_cord_v2_dataset
 
 rng:
   seed: 42
@@ -69,5 +71,5 @@ ddp:
   use_megatron_fsdp: true
   use_distributed_optimizer: true
   data_parallel_sharding_strategy: "optim_grads_params"
-  fsdp_double_buffer: true
-  nccl_ub: true
+  # fsdp_double_buffer: true
+  # nccl_ub: true
